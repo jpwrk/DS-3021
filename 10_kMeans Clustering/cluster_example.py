@@ -2,6 +2,7 @@
 
 #%%
 # Load libraries
+import os 
 import pandas as pd
 import numpy as np
 import plotly.express as px
@@ -17,7 +18,8 @@ os.listdir()
 os.chdir('c:\\Users\\Brian Wright\\Documents\\3001Python\\DS-3001')
 #%%
 # Load Data
-house_votes_Dem = pd.read_csv("data/house_votes_Dem.csv", encoding='latin')
+house_votes_Dem = pd.read_csv("data/house_votes_Dem.csv", encoding='latin') #! this encoding makes sure that unique 
+#! characters in the names aren't thrown back as NA
 house_votes_Rep = pd.read_csv("data/house_votes_Rep.csv")
 #%%
 #Let's take a look at the data

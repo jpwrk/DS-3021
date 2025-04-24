@@ -13,6 +13,7 @@ Step one: Review these two datasets and brainstorm problems that could be addres
 Step two: Work through the steps outlined in the examples to include the following elements: 
 
   * What is a independent Business Metric for your problem? 
+    * ex. increase in sales or increase in customers
   * Data preparation:  
     * correct variable type/class as needed
     * collapse factor levels as needed
@@ -21,7 +22,9 @@ Step two: Work through the steps outlined in the examples to include the followi
     * drop unneeded variables
     * create target variable if needed
   * Calculate the prevalence of the target variable 
+    * this is something that is unique to classification (if you have discrete values)
   * Create the necessary data partitions (Train,Tune,Test)
+  * Build both your pipelines into a function and test that the results match your expectations.
   
 Step three: What do your instincts tell you about the data. Can it address your problem, what areas/items are you worried about? 
 

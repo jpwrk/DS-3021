@@ -12,10 +12,9 @@ from matplotlib import pyplot as plt
 import seaborn as sns
 from sklearn import preprocessing
 import random
-from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
+from sklearn.metricFs import confusion_matrix, ConfusionMatrixDisplay
 from sklearn.metrics import classification_report
 from sklearn import metrics
-from plot_metric.functions import BinaryClassification #need to pip install plot metric
 
 #%%
 # -------- Data prep --------
@@ -118,6 +117,7 @@ X = bank_data.drop(['signed up_1'], axis=1).values   # independent variables
 y = bank_data['signed up_1'].values                  # dependent variable
 """
 
+
 train, test = train_test_split(bank_data,  test_size=0.4, stratify = bank_data['signed up_1']) 
 test, val = train_test_split(test, test_size=0.5, stratify=test['signed up_1'])
 
@@ -125,6 +125,7 @@ test, val = train_test_split(test, test_size=0.5, stratify=test['signed up_1'])
 # now, let's train the classifier for k=9
 import random
 random.seed(1984)   # kNN is a random algorithm, so we use `random.seed(x)` to make results repeatable
+#! make sure you also drop signed up 0, so that the model isn't just memorizing
 
 X_train = train.drop(['signed up_1'], axis=1).values
 y_train = train['signed up_1'].values
@@ -230,6 +231,8 @@ plt.show()
 #%%
 # -------- Adjusting the threshold --------
 # we want to make a table containing: probability, expected, and actual values
+
+#! if the predicted probability is the same as the signed up desnity plot, then you're just guessing, not making an actual model
 
 test_probs = neigh.predict_proba(X_test)
 test_preds = neigh.predict(X_test)
